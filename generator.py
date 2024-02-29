@@ -64,7 +64,7 @@ class Generator:
                     print("Adjusting to environment sound...😀\n")
                     self.r.adjust_for_ambient_noise(source, duration=1.0)
                     print(f"Start speaking and speak \"{keyword}\" at the end to translate! ")
-                    audio = self.r.listen(source, phrase_time_limit=30)
+                    audio = self.r.listen(source, phrase_time_limit=5)
                     print("[Done] Just a second...")
                     # audio_set.append(audio)
                 except WaitTimeoutError as e:

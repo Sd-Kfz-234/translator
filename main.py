@@ -21,7 +21,7 @@ def main():
     
     paragraph = generator.start_conversation()
     translation = translate_function(paragraph, from_lang=config["from_lang"], to_lang=config["to_lang"])
-    generator.generate_voice(translation, useEL=False)
+    generator.generate_voice(translation, useEL=True)
     
 if __name__ == "__main__":
     main()
