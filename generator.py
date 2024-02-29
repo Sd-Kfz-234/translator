@@ -62,9 +62,9 @@ class Generator:
             with self.mic as source:
                 try:
                     print("Adjusting to environment sound...😀\n")
-                    self.r.adjust_for_ambient_noise(source, duration=1.0)
+                    self.r.adjust_for_ambient_noise(source, duration=0.5)
                     print(f"Start speaking and speak \"{keyword}\" at the end to translate! ")
-                    audio = self.r.listen(source, phrase_time_limit=5)
+                    audio = self.r.listen(source, phrase_time_limit=30)
                     print("[Done] Just a second...")
                     # audio_set.append(audio)
                 except WaitTimeoutError as e:
@@ -85,7 +85,7 @@ class Generator:
                     break
                 # for i, word in enumerate(user_input):
                 #     check_quit(word)
-        
+        paragraph=paragraph.replace("stop","")
         print("return ", paragraph)
         return paragraph
                 
@@ -130,6 +130,7 @@ class Generator:
     def whisper(self, audio):
         '''
         Uses the Whisper API to generate audio for the response text. 
+
 
         Args:
             audio (AudioData) : AudioData instance used in Speech Recognition, needs to be written to a
